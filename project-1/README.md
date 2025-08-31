@@ -33,11 +33,11 @@ O projeto tem como objetivo identificar módulos de co-expressão gênica que co
 
 | Base de Dados  | Endereço na Web    | Resumo descritivo |
 |-------|--------|----------------|
-| GSE 28521 | ()[https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE28521&utm]| Dados de microarray do córtex frontal e temporal de indivíduos com autismo e controles (Voineagu et al., 2011) |
-| GSE 102741 | ()[https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102741&utm] | RNA-Seq de córtex pré-frontal e corpo caloso em autismo  (Gupta et al., 2019)|
-| Brain Span – Atlas of the Developing Human Brain | ()[https://www.brainspan.org/?utm] |  Dados de 16 regiões cerebrais humanas ao longo do desenvolvimento.              |
-| PsychENCODE | ()[https://www.synapse.org/Synapse:syn4921369/wiki/235539]  | Consórcio internacional com dados multiômicos (RNA-Seq, ChIP-Seq, ATAC-Seq, etc.) de transtornos psiquiátricos, incluindo autismo, esquizofrenia e bipolaridade. |
-| SFARI Gene |  ()[https://gene.sfari.org/]| Banco de dados em evolução para a comunidade de pesquisa do autismo, centrado em genes implicados na suscetibilidade ao autismo. |
+| GSE 28521 | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE28521&utm| Dados de microarray do córtex frontal e temporal de indivíduos com autismo e controles (Voineagu et al., 2011) |
+| GSE 102741 | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102741&utm | RNA-Seq de córtex pré-frontal e corpo caloso em autismo  (Gupta et al., 2019)|
+| Brain Span – Atlas of the Developing Human Brain | https://www.brainspan.org/?utm |  Dados de 16 regiões cerebrais humanas ao longo do desenvolvimento.              |
+| PsychENCODE | https://www.synapse.org/Synapse:syn4921369/wiki/235539  | Consórcio internacional com dados multiômicos (RNA-Seq, ChIP-Seq, ATAC-Seq, etc.) de transtornos psiquiátricos, incluindo autismo, esquizofrenia e bipolaridade. |
+| SFARI Gene |  https://gene.sfari.org/| Banco de dados em evolução para a comunidade de pesquisa do autismo, centrado em genes implicados na suscetibilidade ao autismo. |
 
 # Modelo Lógico
 
