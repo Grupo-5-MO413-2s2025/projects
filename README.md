@@ -9,7 +9,7 @@ Grupo 5 - MO413 Ciência e Visualização de Dados em Saúde
 | Gabriele Celis |  |                |
 | João Brito |  |                |
 | Laura Costa |  |                |
-| Luis Vieira | 221045 | Computação |
+| Luis Antonio Vieira | 221045 | Computação |
 | Ursula Siqueira |  |                |
 
 # Apresentação
