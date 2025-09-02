@@ -5,12 +5,12 @@ Grupo 5 - MO413 Ciência e Visualização de Dados em Saúde
 
 | Nome  | RA     | Especialização |
 |-------|--------|----------------|
-| Cecília | |              |
+| Cecília | 299824 | Computação |
 | Gabriele Celis | 201983 | Biologia |
 | João Brito | 247435 | Ciência e Tecnologia |
-| Laura Costa |  |                |
+| Laura Costa | 219865 | Computação |
 | Luis Antonio Vieira | 221045 | Computação |
-| Ursula Siqueira |  |                |
+| Ursula Siqueira | 299787 | Saúde|
 
 # Apresentação
 
