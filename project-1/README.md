@@ -7,7 +7,10 @@
 
 # Descrição Resumida do Projeto
 
-O projeto tem como objetivo identificar módulos de co-expressão gênica que contenham lncRNAs (RNA longos que não codificam proteínas mas tem papel fundamental no controle da expressão de genes) e genes de risco para TEA (Transtorno do Espectro Autista), observando se há diferenças na forma como eles se comportam em cérebros de indivíduos com diagnóstico de TEA de sexos diferentes. Para tanto, será dado enfoque especial em genes regulados por hormônios sexuais (AR – receptor androgênico, ESR1/2 – receptores de estrogênio, etc.), visando identificar se a expressão gênica e a conectividade de módulos co-expressos podem apresentar padrões sex-específicos que ajudariam a explicar a maior prevalência de autismo em meninos e possíveis mecanismos regulatórios protetores em meninas.
+O projeto teria como objetivo identificar módulos de co-expressão gênica e genes de risco para TEA (Transtorno do Espectro Autista), observando se há diferenças na forma como eles se comportam em cérebros de indivíduos com diagnóstico de TEA de sexos diferentes. 
+
+Para tanto, pensamos em dar enfoque especial em genes regulados por hormônios sexuais (AR – receptor androgênico, ESR1/2 – receptores de estrogênio, etc.), visando identificar se a expressão gênica e a conectividade de módulos co-expressos podem apresentar padrões sex-específicos que ajudariam a explicar a maior prevalência de autismo em indivíduos do sexo masculino e entender melhor os mecanismos regulatórios protetores no sexo feminino.
+
 
 # Slides
 
@@ -18,16 +21,18 @@ O projeto tem como objetivo identificar módulos de co-expressão gênica que co
 - Apesar de haver uma  maior taxa de diagnóstico do TEA em homens do que em mulheres, há uma quantidade surpreendentemente pequena de pesquisas focadas nas razões para essa disparidade (Halladay et al., 2015). Em específico investigar diferenças sexuais no TEA pode ajudar na compreensão da  sintomatologia, opções e resposta a tratamentos (Napolitano et al. , 2022).
 
 - Estudos de transcriptoma do cérebro em desenvolvimento demonstram que genes de risco para TEA e lncRNAs tendem a se organizar em módulos de co-expressão específicos, muitos dos quais têm expressão restrita a janelas temporais críticas, como o período pré-natal e início pós-natal, quando ocorre a formação de circuitos neurais essenciais (Willsey et al., 2013).
+  
+- A análise de diferenças sexuais em co-expressão permite investigar a fundo possíveis mecanismos de proteção em meninas ou maior suscetibilidade em meninos, servindo como proxy da influência hormonal (Lin L, et al. 2019).
 
-- A análise de diferenças sexuais em co-expressão permite investigar possíveis mecanismos de proteção em meninas ou maior suscetibilidade em meninos, servindo como proxy da influência hormonal (Lin L, et al. 2019).
 
 # Perguntas de Pesquisa
 
-1. É possível priorizar genes e lncRNAs com maior relevância funcional para explicar diferenças de risco entre sexos no TEA?
+1. É possível priorizar genes com maior relevância funcional e padrões de co-expressão para explicar diferenças de risco entre sexos no TEA?
 
-2. Quais lncRNAs e genes hub em módulos sex-específicos são detectáveis em tecidos periféricos (GTEx), indicando potencial biomarcador?
+2. Quais genes hub em módulos sex-específicos são detectáveis em tecidos de pacientes? Existe potencial para indicar biomarcadores?
 
-3. Existem módulos com expressão preferencial em janelas temporais críticas (pré-natal ou início pós-natal) que apresentam diferenças sexuais significativas, sugerindo períodos de risco ou proteção?
+3. Existem módulos com expressão preferencial em janelas temporais críticas que apresentam diferenças significativas?
+
 
 # Bases de Dados
 
@@ -50,13 +55,18 @@ O projeto tem como objetivo identificar módulos de co-expressão gênica que co
 
 # Metodologia
 
-- O projeto pode utilizar dados públicos de transcriptoma do cérebro em desenvolvimento (BrainSpan, GEO) para identificar módulos de co-expressão que incluam lncRNAs e genes de risco para autismo. 
+- O projeto pode utilizar dados públicos de transcriptoma do cérebro em desenvolvimento ([BrainSpan](http://www.brainspan.org/?utm), [GEO](https://www.ncbi.nlm.nih.gov/geo/)) para identificar módulos de co-expressão que incluam lncRNAs (long non-coding RNAs) e genes de risco para autismo. 
 
-- A análise visa considerar diferenças entre sexos como proxy da influência hormonal e, quando disponíveis, integrará dados epigenéticos (PsychENCODE) para avaliar regulação. 
+- A análise visa considerar diferenças entre sexos como proxy da influência hormonal e, quando disponíveis, integrará dados epigenéticos ([PsychENCODE](https://www.synapse.org/Synapse:syn4921369/wiki/235539)) para avaliar regulação. 
 
 # Ferramentas
 
-- As ferramentas principais para a análise podem  incluir R (WGCNA para redes de co-expressão, limma/edgeR para análise de expressão) e Python (NetworkX para manipulação de grafos).
+- Dentre as ferramentas principais para este projeto podem incluir:
+   - Pacotes em R: [WGCNA](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-9-559) para redes de co-expressão (correlação entre os genes) e [limma](https://bioconductor.org/packages/release/bioc/html/limma.html)/[edgeR](https://bioconductor.org/packages/release/bioc/html/edgeR.html) para análise de expressão diferencial dos genes;
+   - Pacotes em Python: [PyWGCNA](https://mortazavilab.github.io/PyWGCNA/html/index.html), [diffxpy](https://diffxpy.readthedocs.io/en/latest/) (expressão diferencial gênica), [NetworkX](https://networkx.org/) para manipulação de grafos
+   - Funcionalidades de análise integradas no [GEO](https://www.ncbi.nlm.nih.gov/geo/)
+   - [Cytoscape](https://cytoscape.org/)
+
 
 # Referências Bibliográficas
 
