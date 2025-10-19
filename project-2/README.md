@@ -103,6 +103,7 @@ O projeto tem como objetivo identificar módulos de co-expressão gênica que co
 
 - Cada nó pode ter atributos como expressão média por sexo, pertencimento a genes de risco e detectabilidade em tecidos periféricos. 
 
+![alt text](assets/images/modelo_logico.jpg)
 
 # Integração entre Bases
 
