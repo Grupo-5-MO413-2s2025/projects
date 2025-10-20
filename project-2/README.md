@@ -52,7 +52,7 @@ O projeto tem como objetivo identificar módulos de co-expressão gênica que co
 
 - No [Orange](https://orangedatamining.com/), foi filtrado os genes ruidosos e de baixa expressão. A figura abaixo mostra o workflow da pipeline até esta etapa.
 
-![Orange_preprocessing_workflow.png](assets/images/Differential_expression_workflow.png)
+![Orange_preprocessing_workflow.png](assets/images/Orange_preprocessing_workflow.png)
 
 - Para a análise de expressão diferencial, foram separados genes diferencialmente expressos em comum para os grupos TEA e controle, e genes diferencialmente expressos somente para o grupo TEA, como mostra o workflow abaixo.
 
@@ -117,7 +117,7 @@ O projeto tem como objetivo identificar módulos de co-expressão gênica que co
 
 ![alt text](assets/images/idiograma_neurodivergentes.png)
 
-![alt text](assets/images/idiograma_neurodivergentes.png)
+![alt text](assets/images/enriquecimento_neurodivergentes.png)
 
 - Para os grupos TEA e Controle
 
