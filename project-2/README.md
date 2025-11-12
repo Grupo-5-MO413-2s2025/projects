@@ -36,13 +36,37 @@ O projeto tem como objetivo identificar módulos de co-expressão gênica que co
 
 # Metodologia
 
-## Escolha dos dados
+## Bases de Dados e Evolução
 
 - Como fonte principal de dados, foi escolhido o dataset do GEO [GSE102741](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102741&utm), contendo dados públicos de RNA-seq com normalização RPKM, extraídos de amostras do Cortex prefrontal dorsolateral do cérebro humano, para os grupos TEA e controle. Além disso, metadados sobre idade e sexo estão disponíveis no dataset
 
 - Outro dataset selecionado foi o [E-MTAB-13871](https://www.omicsdi.org/dataset/biostudies-arrayexpress/E-MTAB-13871) do ArrayExpress, contendo amostras de sangue de humanos controle e com TEA, extraindo RNA-seq de mRNA com normalização binomial negativa por células mononucleares do sangue periférico, e metadados de idade e sexo.
 
-## Processamento do dataset GSE102741
+| Base de Dados  | Endereço na Web    | Resumo descritivo |
+|-------|--------|----------------|
+| GSE 102741 | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102741&utm| Dados públicos de RNA-seq com normalização RPKM, extraídos de amostras do Cortex prefrontal dorsolateral do cérebro humano, para os grupos TEA e controle e metadados sobre idade e sexo. |
+| E-MTAB-13871 | https://www.omicsdi.org/dataset/biostudies-arrayexpress/E-MTAB-13871 | Dados do ArrayExpress, contendo amostras de sangue de humanos controle e com TEA, extraindo RNA-seq de mRNA com normalização binomial negativa por células mononucleares do sangue periférico, e metadados de idade e sexo. |
+
+- Sobre a base [GSE102741](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102741&utm), foram feitos tratamentos de filtragem por idade, separando para as análises somente indivíduos com mais de 18 anos, foi calculada a média de log2 RPKM, e removidos genes com baixa expressão ou com ruído, com média de log2 RPKM menor que 0,5.
+
+- Percebeu-se nesta base um certo desbalanceamento entre as classes após os tratamentos, com 18 amostras controle (3 do sexo feminino e 15 do sexo masculino) e 6 amostras relacionadas ao TEA (1 do sexo feminio e 5 do sexo masculino).
+
+## Modelo Lógico
+
+- O grafo pode ser organizado em camadas, incluindo: genes codificadores, lncRNAs, elementos epigenéticos (picos/DMRs) e anotação de genes de risco. 
+
+- As arestas podem representar a co-expressão entre genes/lncRNAs ou relações com elementos epigenéticos. 
+
+- Cada nó pode ter atributos como expressão média por sexo, pertencimento a genes de risco e detectabilidade em tecidos periféricos. 
+
+![alt text](assets/images/modelo_logico.jpg)
+
+## Integração entre Bases
+
+- Até o momento, não foram realizadas integrações entre bases.
+
+## Análise Preliminar
+### Processamento do dataset GSE102741
 
 - Para a análise, as amostras foram filtradas por critério de idade, mantendo apenas as relacionadas à indivíduos adultos, com mais de 18 anos, para o sexo masculino e feminino.
 
@@ -64,7 +88,7 @@ O projeto tem como objetivo identificar módulos de co-expressão gênica que co
     - Genes diferencialmente expressos entre grupos com TEA (masculino e feminino)
     - Genes diferencialmente expressos entre todos os grupos (TEA e Controle)
 
-## Análise do dataset GSE102741
+### Análise do dataset GSE102741
 
 - Para a representação dos dados em grafos, foi utilizada a ferramenta [Cytoscape](https://cytoscape.org/), com objetivo de visualizar os genes com maior abundância em indivíduos com TEA e entre ambos os grupos de análise (TEA e controle).
 
@@ -81,35 +105,6 @@ O projeto tem como objetivo identificar módulos de co-expressão gênica que co
    - **GO Cellular Component (CC)**: Localização e estruturas celulares.
    - **GO Molecular Function (MF)**: Funções e atividades moleculares elementares.
 
-
-
-# Bases de Dados e Evolução
-
-| Base de Dados  | Endereço na Web    | Resumo descritivo |
-|-------|--------|----------------|
-| GSE 102741 | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102741&utm| Dados públicos de RNA-seq com normalização RPKM, extraídos de amostras do Cortex prefrontal dorsolateral do cérebro humano, para os grupos TEA e controle e metadados sobre idade e sexo. |
-| E-MTAB-13871 | https://www.omicsdi.org/dataset/biostudies-arrayexpress/E-MTAB-13871 | Dados do ArrayExpress, contendo amostras de sangue de humanos controle e com TEA, extraindo RNA-seq de mRNA com normalização binomial negativa por células mononucleares do sangue periférico, e metadados de idade e sexo. |
-
-- Sobre a base [GSE102741](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102741&utm), foram feitos tratamentos de filtragem por idade, separando para as análises somente indivíduos com mais de 18 anos, foi calculada a média de log2 RPKM, e removidos genes com baixa expressão ou com ruído, com média de log2 RPKM menor que 0,5.
-
-- Percebeu-se nesta base um certo desbalanceamento entre as classes após os tratamentos, com 18 amostras controle (3 do sexo feminino e 15 do sexo masculino) e 6 amostras relacionadas ao TEA (1 do sexo feminio e 5 do sexo masculino).
-
-
-# Modelo Lógico
-
-- O grafo pode ser organizado em camadas, incluindo: genes codificadores, lncRNAs, elementos epigenéticos (picos/DMRs) e anotação de genes de risco. 
-
-- As arestas podem representar a co-expressão entre genes/lncRNAs ou relações com elementos epigenéticos. 
-
-- Cada nó pode ter atributos como expressão média por sexo, pertencimento a genes de risco e detectabilidade em tecidos periféricos. 
-
-![alt text](assets/images/modelo_logico.jpg)
-
-# Integração entre Bases
-
-- Até o momento, não foram realizadas integrações entre bases.
-
-# Análise Preliminar
 
 - Para o grupo com TEA
 
