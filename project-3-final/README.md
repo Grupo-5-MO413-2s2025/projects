@@ -81,11 +81,13 @@ Com relação à base [E-MTAB-13871](https://www.omicsdi.org/dataset/biostudies-
 Além disso, de forma a enriquecer as análises com maior disponibilidade de dados, foram incluidos os datasets [GSE28521](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE28521) (cérebro) e [GSE18123](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=gse18123) (sangue). A série [GSE28521](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE28521), de Voineagu et al. (2011), identifica desorganização da arquitetura transcriptômica cortical, incluindo atenuação das diferenças típicas entre córtex frontal e temporal, além de módulos de co-expressão alterados. Entre eles, destaca-se um módulo neuronal enriquecido para genes de risco ao TEA e um módulo imune/glial associado a respostas reativas. Já a série [GSE18123](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=gse18123), é utilizada no estudo de Kong et al., 2012, em que é demonstrado que assinaturas de expressão gênica no sangue podem discriminar indivíduos com TEA, principalmente homens, com desempenho moderado (AUC ≈ 0,70). A baixa acurácia em mulheres destaca a relevância de diferenças sexuais em biomarcadores e sugere heterogeneidade biológica que deve ser contemplada em modelos diagnósticos. Essas últimas bases apresentadas possuem normalização em log2.
 
 
-Por fim, as bases [GSE102741](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102741&utm), [GSE28521](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE28521) e [GSE18123](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=gse18123) foram integradas, desta vez não realizando o filtro por idade, porém foram removidos genes de baixa significância (p-valor maior que 0.05) e de baixa expressão (log2FC menor que 0.7).Para este processamento, foi utilizado o GEO2R de forma a visualizar plots dos dados, e o [Orange](https://orangedatamining.com/) para filtragem se ruído e significância. O workflow está mostrado na figura abaixo.
+Por fim, as bases [GSE102741](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102741&utm), [GSE28521](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE28521) e [GSE18123](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=gse18123) foram integradas, desta vez não realizando o filtro por idade, porém foram removidos genes de baixa significância (p-valor maior que 0.05) e de baixa expressão (log2FC menor que 0.7).Para este processamento, foi utilizado o GEO2R de forma a visualizar plots dos dados, e o [Orange](https://orangedatamining.com/) para filtragem se ruído e significância. O workflow está mostrado na figura abaixo. A saída do workflow foi levada ao [STRING-DB](https://string-db.org/), para a preparação para a análise de redes.
 
 ![workflow_3_bases.png](assets/images/workflow_3_bases.png)
 
 Códigos auxiliares em Python também foram utilizados, além dos processamentos feitos no [Orange](https://orangedatamining.com/).
+
+Os workflows utilizados estão na pasta [workflows](/project-3-final/pipelines/workflows/)
 
 
 ## Modelo Lógico
@@ -111,9 +113,11 @@ Para a análise e enriquecimento, a pesquisa foi focada nas três categorias pri
    - **GO Cellular Component (CC)**: Localização e estruturas celulares.
    - **GO Molecular Function (MF)**: Funções e atividades moleculares elementares.
 
-Por fim, foram realizadas as análises de expressão diferencial entre grupos com TEA (masculino e feminino) e entre todos os grupos (TEA e controle)
+Por fim, foram realizadas as análises de expressão diferencial entre grupos com TEA (masculino e feminino) e entre todos os grupos (TEA e controle). Essas análises foram feitas por meio de códigos auxiliares em Python, presentes na pasta [src](/project-3-final/src), para processamento e visualização em Volcano plots.
 
-Para o dataset [E-MTAB-13871](https://www.omicsdi.org/dataset/biostudies-arrayexpress/E-MTAB-13871), assim como no GSE102741, foram utilizadas as ferramentas [Cytoscape](https://cytoscape.org/) para representação em grafos e [Enrichr](https://maayanlab.cloud/Enrichr/) e [David Bioinformatics](https://davidbioinformatics.nih.gov/) para enriquecimento. Foi realizada a análise de expressão diferencial para o caso entre todos os grupos (TEA e controle), seguida por uma análise de co-expressão entre cérebro (GSE102741) e sangue (E-MTAB-13871), comparando TEA e controle para os sexos masculino e feminino, e comparação entre TEA masculino e TEA feminino.
+Para o dataset [E-MTAB-13871](https://www.omicsdi.org/dataset/biostudies-arrayexpress/E-MTAB-13871), assim como no GSE102741, foram utilizadas as ferramentas [Cytoscape](https://cytoscape.org/) para representação em grafos e [Enrichr](https://maayanlab.cloud/Enrichr/) e [David Bioinformatics](https://davidbioinformatics.nih.gov/) para enriquecimento. Foi realizada a análise de expressão diferencial para o caso entre todos os grupos (TEA e controle), seguida por uma análise de co-expressão entre cérebro (GSE102741) e sangue (E-MTAB-13871), comparando TEA e controle para os sexos masculino e feminino, e comparação entre TEA masculino e TEA feminino ([src](/project-3-final/src)).
+
+Além disso, no notebook [project-3_code.ipynb](/project-3-final/pipelines/notebooks/project-3_code.ipynb), foram realizadas algumas análises de correlação entre os genes da base [GSE102741](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102741&utm), além da visualização em redes e plots sobre densidade de genes para o dataset [E-MTAB-13871](https://www.omicsdi.org/dataset/biostudies-arrayexpress/E-MTAB-13871).
 
 Ao integrar as bases [GSE102741](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102741&utm), [GSE28521](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE28521) e [GSE18123](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=gse18123), foi montada uma rede no [Cytoscape](https://cytoscape.org/) com os dados processados de forma a avaliar padrões de interação entre os genes e realizar análises de clustering e identificação de genes diferencialmente expressos. A ferramenta [GEO2R](https://www.ncbi.nlm.nih.gov/geo/geo2r/) foi utilizada para produzir Volcano plots para as análises de expressão diferencial. Códigos em Python também foram utilizados para visualizações.
 
@@ -136,6 +140,7 @@ Dentre os principais desafios encontrados para o cumprimento da proposta inicial
 - [Enrichr](https://maayanlab.cloud/Enrichr/)
 - [TargetMine](https://targetmine.mizuguchilab.org/)
 - [David Bioinformatics](https://davidbioinformatics.nih.gov/)
+- [STRING-DB](https://string-db.org/)
 
 
 # Resultados e Discussão
@@ -185,6 +190,21 @@ Com relação às análises feitas para dados do cérebro ([GSE102741](https://w
 - Análise de expressão diferencial para indivíduos com TEA
 ![alt text](assets/images/expressao_diferencial_tea.png)
 
+
+As matrizes de correlação entre os genes da base [GSE102741](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102741&utm) obtidas, foram:
+
+
+- Correlação para TEA e Controle:
+![alt text](assets/images/correlação_genes_asd_controle.png)
+
+- Correlação apenas para TEA:
+![alt text](assets/images/correlação_genes_asd_apenas.png)
+
+- Correlação para Diferença de expressão no TEA:
+![alt text](assets/images/correlação_diferença_de_expressão_tea.png)
+
+Foram visualizadas, também as redes a seguir:
+
 - Rede de co-expressão obtida (nós representam os genes, as arestas as interações entre os genes, as cores representam os clusters e o tamanho do nó a medida de centralidade)
 ![alt text](assets/images/rede_coexpressao_cerebro.png)
 
@@ -194,6 +214,10 @@ Com relação às análises feitas para dados do cérebro ([GSE102741](https://w
 - Rede de co-expressão para genes expressos somente em amostras TEA (nós representam os genes, as arestas as interações entre os gene e o tamanho do nó a medida de centralidade)
 ![alt text](assets/images/coexpressao_tea.jpeg)
 
+- Rede de para Diferença de expressão no TEA (nós representam os genes, as arestas as interações entre os gene e o tamanho do nó a medida de centralidade)
+![alt text](assets/images/grafo_diferença_de_expressao.png)
+
+Nesta análise, percebeu-se genes relevantes como: Y_RNA, TMEM144, SNORD116-3, SELENOP, GOLGA8B, para ASD e controle; Y_RNA, CYCSP24, ENSG00000223030, MIR1301, HIVEP3, apenas para ASD e Y_RNA, CAMSAP3, EGFEM1P, CSDC2, ENSG00000241530, para a análise diferencial.
 
 Já para dados de sangue ([E-MTAB-13871](https://www.omicsdi.org/dataset/biostudies-arrayexpress/E-MTAB-13871)). Foram obtidos os seguintes resultados para as análises testadas:
 
@@ -215,6 +239,10 @@ Para a análise de co-expressão entre cérebro e sangue, foram obtidos os segui
 
 - TEA feminino vs controle masculino
 ![alt text](assets/images/coexpressao_tea_fem_control_masc.png)
+
+Foi plotada, também, com os dados de sangue, a densidade de genes correlacionados entre os valores de log2FC para os grupos TEA vs controle masculino e TEA feminino vs masculino:
+
+![alt text](assets/images/densidade_de_genes_log2FC_correlacionado_Hexbin.png)
 
 Nas análises comparativas entre cérebro e sangue, observou-se que não houve intersecção significativa de genes diferenciais em homens, mas quatro genes coincidiram entre os tecidos em mulheres: ARC, FAM153CP, XRRA1 e Y_RNA. Destes, ARC (score alto no SFARI e amplamente associado à plasticidade sináptica) emergiu como um gene de especial relevância: estava up-regulado no cérebro e down-regulado no sangue, um padrão consistente com sua participação em regulação sináptica pós-sináptica e com modelos etiológicos do TEA envolvendo sinaptopatia. Essa convergência multidataset, aliada ao histórico robusto no SFARI, sugere ARC como forte candidato a biomarcador sexo-específico para TEA feminino. Por outro lado, genes diferenciais no sangue masculino não apresentaram associação SFARI, reforçando heterogeneidade molecular por sexo. No dataset E-MTAB-13871, a ausência de replicatas femininas limitou a significância estatística, mas permitiu observar tendências funcionais coerentes com vias associadas ao TEA no SFARI, sobretudo sinápticas e imunológicas.
 
